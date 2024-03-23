@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model BooksListViewModel
+
+ 
+<div class="text-center">
+    <h1>Welcome to Our Online Bookstore</h1>
+</div> 
+ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>ISBN</th>
+            <th>Classification/Category</th>
+            <th>Number of Pages</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Book b in Model.Books)
+        {
+            <tr>
+                <td>@b.Title</td>
+                <td>@b.Author</td> 
+                <td>@b.Publisher</td>
+                <td>@b.Isbn</td>
+                <td>@b.Classification/@b.Category</td>
+                <td>@b.PageCount</td>
+                <td>@b.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div page-model="@Model.PaginationInfo" page-action="Index" page-classes-enabled='true' page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
